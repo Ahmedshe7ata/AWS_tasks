@@ -1,0 +1,52 @@
+# Lab Objectives:
+# How to view the instance metadata from within the instance CLI
+# How to enable or disable Instance Metadata or choose between IMDSv1 and IMDSv2
+
+
+
+# this command will create an IMDSv2 Token that last for 6 hours and will store the token in a variable named TOKEN. This token can only be obtained by making a specific request using the HTTP PUT method.
+
+# curl or Client URL command can be used to transfer data to or from a server. It can use HTTP for that among other protocols.
+
+TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`
+
+# the -H option means, Specify an additional header to be sent in the HTTP request. This is the X-aws-ec2-metadata-token-seconds header which specified the duration of the requested token.
+
+# the -X option is to Specify a request method for communication with the server. In this case it is the PUT method request.
+
+
+# Command to show Instance metadata categories
+# These categories can be found following the link
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-categories.html
+
+curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/
+
+# Command to show instance metadata profile
+curl http://169.254.169.254/latest/meta-data/profile -H "X-aws-ec2-metadata-token: $TOKEN"
+
+# Command to retrieve the instance AMI ID
+
+curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/ami-id
+
+# If the instane has an IAM role attached, this command will retrieve the temporary STS credentials available for the IAM role
+
+curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/iam/security-credentials/S3FullAccessIAMRole
+
+# To retrieve the instance's local IPv4 address
+curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/local-ipv4
+
+
+
+
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html
+# To disable IMDSv1 and only use IMDSv2 use the command
+
+aws ec2 modify-instance-metadata-options --instance-id i-0cb4c1f1def22325e --http-tokens required --http-endpoint enabled
+
+    # To re-enable  IMDSv1 2 use the command
+
+    aws ec2 modify-instance-metadata-options --instance-id i-0cb4c1f1def22325e --http-tokens optional --http-endpoint enabled
+
+    # to completely turn off access to the instance's meta data, use the command
+
+    aws ec2 modify-instance-metadata-options  --instance-id i-0cb4c1f1def22325e --http-endpoint disabled
