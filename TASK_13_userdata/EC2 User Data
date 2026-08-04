@@ -1,0 +1,47 @@
+# Lab Objectives:
+# 1) Demonstrate how to use the user data field to pass a bash script to the instance upon launch.
+
+# 2) Then, show why it is critical to not include sensitive data in the use data script 
+# We can retrieve it using the Client URL (curl) command below
+
+# If you are using IMDSv1, you can view the data as follows:
+
+curl http://169.254.169.254/latest/user-data
+
+# If you are using IMSDv2, then follow the same way to get the TOKEN and view the user data as we did with the meta data labs.
+
+
+# The bash script to use for this hands on lab user data hands on lab
+
+# #!bin/bash
+# yum update -y
+# yum install httpd -y     # installs apache (httpd) service
+# systemctl start httpd    # starts httpd service   
+# systemctl enable httpd   # enable httpd to auto-start at system boot
+# echo " This is server *1* in AWS Region US-EAST-1 in AZ US-EAST-1B " > /var/www/html/index.html
+
+
+#!bin/bash
+yum update -y
+yum install httpd -y    
+systemctl start httpd       
+systemctl enable httpd   
+echo " This is server *1* in AWS Region US-EAST-1 in AZ US-EAST-1A " > /var/www/html/index.html
+
+
+# If you want to do this job manually, you can start with 
+sudo su
+
+# then type the above commands or precede any command with sudo
+
+
+# Other useful apache related commands
+# To restart Apache
+systemctl restart httpd
+
+# To check the status of the Apache server
+systemctl status httpd
+
+# To stop the apache service
+systemctl stop httpd
+
