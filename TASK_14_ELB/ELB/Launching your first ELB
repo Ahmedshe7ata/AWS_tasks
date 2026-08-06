@@ -1,0 +1,17 @@
+# The scripts used to launch the two EC2 instances that will be used as the backend behind the Enable
+# The instances need to be in public subnets just to ensure that they can be tested from the internet before launching the ELB. In real production scenarios, they can be in either public or private subnets since the internet facing ELB will be enabled in public subnets.
+
+#!bin/bash
+yum update -y
+yum install httpd -y
+systemctl start httpd service 
+systemctl enable httpd 
+echo " This is server *1* in AWS Region US-EAST-1 in AZ US-East-1e " > /var/www/html/index.html
+
+
+#!bin/bash
+yum update -y
+yum install httpd -y
+systemctl start httpd service 
+systemctl enable httpd 
+echo " This is server *2* in AWS Region US-EAST-1 in AZ US-East-1f " > /var/www/html/index.html
