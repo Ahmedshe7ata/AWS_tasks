@@ -1,0 +1,168 @@
+#list the last 7 lines in path (/etc/passwd) to know users in machine 
+
+tail -7 /etc/passwd 
+she7ata:x:1000:1000:She7ata:/home/she7ata:/bin/bash
+kamal:x:1001:1002::/home/kamal:/bin/bash
+sayed:x:1002:1005::/home/sayed:/bin/bash
+mohsen:x:1003:1005: he is charismatic :/home/mohsen:/bin/bash
+test:x:1004:1006::/home/test:/bin/bash
+mohamed:x:1005:1007::/home/mohamed:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+
+
+
+
+#add she7ata to sudoers
+su - root 
+visudo -> add user in sudoers
+
+#login with she7ata 
+su - she7ata 
+
+#we must use sudo before command  
+useradd dolfied 
+useradd: Permission denied.
+useradd: cannot lock /etc/passwd; try again later.
+
+
+#
+sudo useradd dolfined   
+[sudo] password for she7ata: 
+[she7ata@cloud-vm ~]$ tail -7 /etc/passwd 
+kamal:x:1001:1002::/home/kamal:/bin/bash
+sayed:x:1002:1005::/home/sayed:/bin/bash
+mohsen:x:1003:1005: he is charismatic :/home/mohsen:/bin/bash
+test:x:1004:1006::/home/test:/bin/bash
+mohamed:x:1005:1007::/home/mohamed:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+dolfined:x:1006:1008::/home/dolfined:/bin/bash
+
+
+# default name primary group for dolfined  
+tail -7 /etc/group  
+fin:x:1004:
+it:x:1005:sayed
+test:x:1006:
+mohamed:x:1007:
+apache:x:48:
+docker:x:984:she7ata
+-> dolfined:x:1008:
+
+
+
+#user modification 
+sudo usermod -u 2000 -g test -c "Hello, from dolfined" -md /home/dolfined-new dolfined   
+[sudo] password for she7ata: 
+[she7ata@cloud-vm ~]$ tail -7 /etc/passwd 
+kamal:x:1001:1002::/home/kamal:/bin/bash
+sayed:x:1002:1005::/home/sayed:/bin/bash
+mohsen:x:1003:1005: he is charismatic :/home/mohsen:/bin/bash
+test:x:1004:1006::/home/test:/bin/bash
+mohamed:x:1005:1007::/home/mohamed:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+dolfined:x:2000:1006:Hello, from dolfined:/home/dolfined-new:/bin/bash
+[she7ata@cloud-vm ~]$ tail -7 /etc/group  
+fin:x:1004:
+it:x:1005:sayed
+test:x:1006:
+mohamed:x:1007:
+apache:x:48:
+docker:x:984:she7ata
+dolfined:x:1008:
+
+
+
+#information about user 
+id dolfined 
+uid=2000(dolfined) gid=1006(test) groups=1006(test)
+
+
+
+#adding user to dolfined as a secondary group
+sudo usermod -G dolfined dolfined 
+[sudo] password for she7ata: 
+[she7ata@cloud-vm ~]$ tail -7 /etc/group  
+fin:x:1004:
+it:x:1005:sayed
+test:x:1006:
+mohamed:x:1007:
+apache:x:48:
+docker:x:984:she7ata
+dolfined:x:1008:dolfined
+id dolfined 
+uid=2000(dolfined) gid=1006(test) groups=1006(test),1008(dolfined)
+
+
+
+#adding user to group(test) & removing it from group(dolfined) 
+sudo usermod -G test dolfined 
+[she7ata@cloud-vm ~]$ id dolfined 
+uid=2000(dolfined) gid=1006(test) groups=1006(test)
+[she7ata@cloud-vm ~]$ tail -7 /etc/group  
+fin:x:1004:
+it:x:1005:sayed
+test:x:1006:dolfined
+mohamed:x:1007:
+apache:x:48:
+docker:x:984:she7ata
+dolfined:x:1008:
+
+
+
+#adding user to group(dolfined) by appending not overwrite
+sudo usermod -aG dolfined dolfined 
+[she7ata@cloud-vm ~]$ id dolfined 
+uid=2000(dolfined) gid=1006(test) groups=1006(test),1008(dolfined)
+[she7ata@cloud-vm ~]$ tail -7 /etc/group  
+fin:x:1004:
+it:x:1005:sayed
+test:x:1006:dolfined
+mohamed:x:1007:
+apache:x:48:
+docker:x:984:she7ata
+dolfined:x:1008:dolfined
+
+
+
+
+#deleting user but not deleting its home directory   
+sudo userdel test2 
+[she7ata@cloud-vm ~]$ ls /home
+dolfined-new  kamal  mohamed  mohsen  sayed  she7ata  test  test2  test3
+[she7ata@cloud-vm ~]$ tail -10 /etc/passwd 
+tcpdump:x:72:72::/:/sbin/nologin
+she7ata:x:1000:1000:She7ata:/home/she7ata:/bin/bash
+kamal:x:1001:1002::/home/kamal:/bin/bash
+sayed:x:1002:1005::/home/sayed:/bin/bash
+mohsen:x:1003:1005: he is charismatic :/home/mohsen:/bin/bash
+test:x:1004:1006::/home/test:/bin/bash
+mohamed:x:1005:1007::/home/mohamed:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+dolfined:x:2000:1006:Hello, from dolfined:/home/dolfined-new:/bin/bash
+test3:x:2002:2002::/home/test3:/bin/bash
+
+
+
+
+#deleting user and its home directory
+sudo userdel -r  test3 
+[she7ata@cloud-vm ~]$ ls /home 
+dolfined-new  kamal  mohamed  mohsen  sayed  she7ata  test  test2
+[she7ata@cloud-vm ~]$ tail -10 /etc/passwd 
+dnsmasq:x:985:985:Dnsmasq DHCP and DNS server:/var/lib/dnsmasq:/usr/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+she7ata:x:1000:1000:She7ata:/home/she7ata:/bin/bash
+kamal:x:1001:1002::/home/kamal:/bin/bash
+sayed:x:1002:1005::/home/sayed:/bin/bash
+mohsen:x:1003:1005: he is charismatic :/home/mohsen:/bin/bash
+test:x:1004:1006::/home/test:/bin/bash
+mohamed:x:1005:1007::/home/mohamed:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+dolfined:x:2000:1006:Hello, from dolfined:/home/dolfined-new:/bin/bash
+
+
+
+#removing dir for user after deleting it 
+sudo rm -r /home/test2
+[she7ata@cloud-vm ~]$ ls /home 
+dolfined-new  kamal  mohamed  mohsen  sayed  she7ata  test
