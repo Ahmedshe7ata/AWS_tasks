@@ -1,0 +1,23 @@
+#setuid
+
+command for files only.
+chmod u+s filename -> grants users the ability to act as file's owner (/usr/bin/passwd) 
+user must have execute permission.
+-rws......
+
+
+#setgid 
+
+command for files and directories.
+chmod g+s filename/dir -> every file under dir has (the same group of dir). 
+group must have execute permission.
+-...rws... 
+
+
+#sticky bit
+
+command for dirs only.
+chmod o+t dirname -> rstricts deletion or renaming o files within that dir for all users(insteadof owner & root).(/tmp)
+others must have execute permission.
+-......r-t    
+ 
