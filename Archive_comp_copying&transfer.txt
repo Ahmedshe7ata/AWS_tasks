@@ -1,0 +1,61 @@
+#archiving files & extract 
+ 
+tar -cvf archive.tar f{1..5}
+-c -> create new archive file 
+-v -> verbose mode 
+-f -> file naming 
+
+
+tar -xvf archive.tar f1 f5
+-x -> extract archive file 
+-----------------------------------------------------------------------------------------
+
+#compressing files & extract
+
+1-gzip
+tar -czf comp_archive.tar.gz f{1..5}
+tar -xzf comp_archive.tar.gz 
+
+
+2-bzip2
+tar -cjf comp_archive.tar.bz2 f{1..5}
+tar -xjf comp_archive.tar.bz2 
+
+
+
+3-xz
+tar -cJf comp_archive.tar.xz f{1..5}
+tar -xJf comp_archive.tar.xz 
+------------------------------------------------------------------------------------------
+
+
+
+#copy & transfer between 2 machines 
+
+
+on dolfined1_machine
+---------------------
+chmod 400 linux.pem -> remove all permissions on key.
+scp -i linux.pem archive.tar ec2-user@dolfined2:/home/ec2-user          -> transfer archive.tar from dolfined1_machine to dolfined2. 
+scp -i linux.pem -r dir1 ec2-user@dolfined2:/home/ec2-user              -> transfer dir1 from dolfined1_machine to dolfined2. 
+
+on dolfined2_machine
+---------------------
+touch f2                                                                -> create new file 
+
+
+on dolfined2_machine
+---------------------
+scp -i linux.pem f2 ec2-user@dolfined2:/home/ec2-user/f2 /home/ec2-user -> transfer file from dolfined2_machine to dolfined1_machine
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+on dolfined1_machine
+--------------------
+ 
+sftp -i linux.pem ec2-user@dolfined2 -> open session with dolfined2
+sftp> mkdir transfer                 -> create dir on dolfined2_machine
+sftp> get -r transfer /home/ec2-user -> transfer file from dolfined2_machine to dolfined1_machine 
+sftp> put f1                         -> transfer file from dolfined1_machine to dolfined2_machine 
