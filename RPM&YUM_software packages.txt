@@ -1,0 +1,21 @@
+RPM
+----
+rpm -ivh package.rpm -> installing a package  
+                                            -i : install package.
+                                            -v : verbose mode. 
+                                            -h : display a progress bar during installation. 											
+
+disadvantages : does not install package dependencies.
+
+
+
+
+
+YUM & DNF(updated YUM)
+----------------------
+this command need to root privilage.
+sudo yum search httpd                        -> search on package.
+sudo yum install nginx --setopt=tsflags=test -> test installation without installation.
+-y                                           -> yes. 
+sudo yum install httpd -y                    -> install httpd package.   
+sudo yum/dnf remove httpd                        -> remove package.
