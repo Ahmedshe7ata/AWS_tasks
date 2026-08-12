@@ -1,0 +1,9 @@
+#need to root privillage 
+
+lsblk             -> show disks and its particions on linked to machine. 
+lsblk -f          -> show the same + filesystem type & UUID.
+lsblk -f          -> show the same + full path of devices.  
+df                -> disk free space.
+df -h             -> disk free space as a human readable(G, M...).
+ 
+ 
