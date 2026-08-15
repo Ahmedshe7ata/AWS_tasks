@@ -1,0 +1,4 @@
+run script from anywhere
+------------------------
+vim ~/.profile
+export PATH=$PATH:/home/ubuntu/my-script
