@@ -1,0 +1,28 @@
+#/bin/bash
+
+echo "Name of shell script = $0 "
+
+echo "Argument 1 = $1 "
+echo "Argument 2 = $2 "
+echo "Argument 3 = $3 "
+
+echo "number of arguments passed to this script = $# "
+echo "Your Arguments list = $*  "
+
+
+ls
+
+echo "Exit Status = $? "
+
+-------------------------------------------
+
+
+./pre.sh one two three
+Name of shell script = ./pre.sh
+Argument 1 = one
+Argument 2 = two
+Argument 3 = three
+number of arguments passed to this script = 3
+Your Arguments list = one two three
+pre.sh
+Exit Status = 0
