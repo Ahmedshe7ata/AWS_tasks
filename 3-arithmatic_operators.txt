@@ -1,0 +1,19 @@
+#!/bin/bash
+
+num1=5
+num2=5
+
+#try with $(( ))
+
+result=$((  num1 * num2  ))
+echo "The result from (()) is $result "
+
+#try with $(( ))
+result=$(( $num1 * $num2 ))
+echo "The result from ((\$,\$)) is $result "
+
+
+#try with let
+let result=num1*num2
+echo "The result from let is $result "
+
