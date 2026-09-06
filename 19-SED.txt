@@ -1,0 +1,19 @@
+ sed 's/dolfined/Dolfined/' file1.txt              -> replace dolfined with Dolfined in first word in each line of file 
+ sed 's/dolfined/Dolfined/2' file1.txt             -> replace dolfined with Dolfined in second word in each line of file
+ sed 's/dolfined/Dolfined/g' file1.txt             -> replace dolfined with Dolfined in all words in each line of file
+
+
+ sed '1,2 s/dolfined/Dolfined/g' file1.txt         -> replace dolfined with Dolfined in all word in line(1,2) of file
+ sed '2,$ s/dolfined/Dolfined/g' file1.txt         -> replace dolfined with Dolfined in all word from line2 to end of file
+ sed 's/^dolfined/Dolfined/g' file1.txt            -> replace start of each line 
+ sed 's/^dolfi.../Dolfined/g' file1.txt            -> replace start of each line 
+ sed 's/center$/CENTER/g' file1.txt                -> replace end of each line
+ sed 's/center$/platform/g' file1.txt              -> replace end of each line
+------------------------------------------------------------------------------------------------------------------------
+ sed ' 2,3 s/dolfined/Dolfined/p ' file1.txt       -> duplicate changes 
+ sed -n  ' 2,3 s/dolfined/Dolfined/p ' file1.txt   -> print lines that change
+ sed '1,2 d' file1.txt                             -> delete line 1,2 in file 
+ sed '/center/ d' file1.txt                        -> delete lines that have center 
+ sed -e 's/dolfined/Dolfined/g' -e 's/center/platform/g' file1.txt   -> execute two commands
+ sed -f sed.txt file1.txt                          -> apply commands in sed.txt on file1.txt
+ sed -i 's/dolfined/Dolfined/g' file.txt           -> changes on original files  
