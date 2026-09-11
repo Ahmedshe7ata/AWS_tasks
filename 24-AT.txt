@@ -1,0 +1,30 @@
+ at 4:17
+ atq
+ at -l
+ at 4:19
+ at -l
+ atrm 2
+ at -l
+ vim at.sh
+ chmod +x at.sh
+ date
+ at 4:23 -f at.sh
+ atq
+ ls
+ ls
+ cd file-at/
+ ls
+ cd ..
+ atq
+ at now + 2 min -f at.sh
+ atq
+ at 10am tomorrow -f at.sh
+ atq
+ at 10am next week -f at.sh
+ ------------------------------
+
+#!/bin/bash
+
+mkdir file-at
+
+touch file-at/test
