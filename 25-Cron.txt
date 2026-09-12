@@ -1,0 +1,42 @@
+service cron status
+  542  clear
+  543  crontab -e
+  544  vim cron.sh
+  545  chmod +x cron.sh
+  546  ls
+  547  cron -e
+  548  crontab -e
+  549  date
+  550  ls
+  551  cat cron.txt
+  552  crontab -e
+  553  crontab -l
+  554  date
+  555  crontab -l
+  556  cat cron.txt
+  557  vim /etc/crotab
+  558  rm /etc/crotab
+  559  crontab -e
+  560  clear
+  561  sudo vim /etc/crontab
+  562  sudo timedatectl set-ntp 0
+  563  date
+  564  sudo timedatectl set-time 18:15:00
+  565  date
+  566  ls
+  567  sudo cp /home//ubuntu/cron.sh /etc/cron.hourly/cron1
+  568  ls /etc/cron.hourly/
+  569  date
+  570  ls
+  571  cat cron.txt
+  572  rm /etc/cron.hourly/cron1
+  573  sudo rm /etc/cron.hourly/cron1
+  574  sudo timedatectl set-ntp 1
+  575  date
+--------------------------------------------------------------------
+
+cron.sh
+---------
+#!/bin/bash
+
+date >> cron.txt
