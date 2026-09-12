@@ -1,0 +1,33 @@
+docker -it -d centos /bin/bash
+  673  docker run -it -d centos /bin/bash
+  674  docker run -it -d fedora /bin/bash
+  675  docker ps
+  676  docker rm d93949448bdb
+  677  docker rm -f  d93949448bdb
+  678  docker run -it -d fedora /bin/bash
+  679  docker stop d93949448bdb
+  680  docker ps
+  681  docker stop e99a54c08b1f
+  682  docker rm e99a54c08b1f
+  683  clear
+  684  docker run -it -d buntu /bin/bash
+  685  docker run -it -d ubuntu /bin/bash
+  686  docker images
+  687  docker rmi ubuntu
+  688  docker ps
+  689  docker rm -f 94cc6d8ab4dc
+  690  docker rmi ubuntu
+  691  docker rmi fedora
+  692  docker run -d fedora sleep 30
+  693  docker os
+  694  docker ps
+  695  docker ps -a
+  696  docker rm 6ebefc2ba91e
+  697  docker run -it -d ubuntu /bin/bash
+  698  docker ps
+  699  docker exec -it 3f9d6951bc41
+  700  docker exec -it 3f9d6951bc41 bash
+  701  docker rm -f 3f9d6951bc41
+  702  docker ps
+  703  docker images
+  704  docker rmi fedora:latest
