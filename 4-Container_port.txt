@@ -1,0 +1,21 @@
+docker ps
+  823  docker run -d --name nginx1 -p 3000
+  824  docker run -d --name nginx1 -p 3000:80 nginx:latest
+  825  docker run -d --name nginx2 -p 3000:80 nginx:latest
+  826  docker run -d --name nginx2 -p 3001:80 nginx:latest
+  827  docker ps
+  828  docker ps -a
+  829  docker rm nginx2
+  830  docker ps -a
+  831  docker run -d --name nginx2 -p 3001:80 nginx:latest
+  832  clear
+  833  docker rm nginx2
+  834  docker ps
+  835  docke run -d --name mongo1 -p 4000:27017 mongo
+  836  docker run -d --name mongo1 -p 4000:27017 mongo
+  837  docker run -d --name mongo2 -p 4001:27017 mongo
+  838  docker ps
+  839  sudo iptables -t nat -L -n
+  840  telnet localhost 4000
+  841  telnet localhost 4001
+  842  telnet localhost 4002
