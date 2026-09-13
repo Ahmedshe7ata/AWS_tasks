@@ -1,0 +1,32 @@
+docker run -it -d fedora
+  713  docker ps
+  714  docker run -it -d  --name test fedora
+  715  docker ps
+  716  docker inspect test
+  717  cear
+  718  clear
+  719  docker images
+  720  docker inspect fedora
+  721  docker inspect fedora | grep size
+  722  docker inspect fedora | grep Size
+  723  clear
+  724  docker --help
+  725  docker rm --help
+  726  clear
+  727  docker run -it -d --name date fedora watch "date >> /var/log/date.log"
+  728  docker run -it -d --name date ubuntu watch "date >> /var/log/date.log"
+  729  docker rm -f d37
+  730  docker run -it -d --name date ubuntu watch "date >> /var/log/date.log"
+  731  docker ps
+  732  docker logs date
+  733  clear
+  734  docker run -it -d --name change fedora:latest
+  735  docker ps
+  736  docker exec change
+  737  docker exec change bash
+  738  docker exec -it change bash
+  739  docker ps
+  740  docker commit 569e2d4041f2 new-change
+  741  docker images
+  742  docker run -it -d --name new-change new-change:latest
+  743  docker exec -it new-change bash
