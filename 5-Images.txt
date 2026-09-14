@@ -1,0 +1,25 @@
+  docker images
+  906  docker pull python:latest
+  907  docker images
+  908  docker rmi b0aed0e0059e
+  909  docker pull postgres:latest
+  910  clear
+  911  docker images
+  912  docker history 4ef4dbc939d6
+  913  clear
+  914  docker images
+  915  docker history 4ef4dbc939d6
+  916  clear
+  917  docker run -it -d postgres:latest
+  918  docker images
+  919  docker commit 4ef4dbc939d6 new-post:V1
+  920  docker ps
+  921  docker ps -a
+  922  docker commit fef883f03c65 new-post:V1
+  923  docker images
+  924  docker commit fef883f03c65 new-post:V2
+  925  docker run -d new-post:V1
+  926  docker ps -a
+  927  docker rm -f 099f233a70f2 fef883f03c65
+  928  docker rmi 5c9e2980becc 4ef4dbc939d6 new-post:V2
+  929  docker images
