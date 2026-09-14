@@ -1,0 +1,48 @@
+docker images
+  905  docker ps -a
+  906  clear
+  907  vim Dockerfile
+  908  ls
+  909  docker build -t simple-file .
+  910  docker history simple-file:latest
+  911  dcker images
+  912  docker images
+  913  docker run cfce4dcea14a
+  914  vim Dockerfile
+  915  docker build -t Not-recommended .
+  916  docker build -t not-recommended .
+  917  docker history not-recommended
+  918  clear
+  919  docker rmi  not-recommended:latest
+  920  vim Dockerfile
+  921  docker build -t recommend .
+  922  docker history recommend:latest
+  923  docker images
+  924  docker rmi 2e9ed3e0e8c4 cfce4dcea14a
+  925  docker p -a
+  926  docker ps -a
+  927  docker rm -f 67201a5fea73
+  928  docker rmi cfce4dcea14a
+  929  docker ps -a
+  930  docker images
+
+-----------------------------------------------
+
+FROM alpine
+CMD [ "echo", "Dlfined", "Docker Course"] 
+
+---------------
+
+FROM ubuntu 
+RUN apt-get update 
+RUN apt-get install -y vim    
+RUN apt-get install -y git
+CMD ["echo", "HELLO FROM DOLFINED"]    
+
+------------------------------------
+
+FROM ubuntu 
+RUN apt-get update && apt-get install -y \
+     vim \
+     git
+CMD ["echo", "HELLO FROM DOLFINED"] 
