@@ -1,0 +1,32 @@
+docker login -u ahmedshe7ata
+  913  docker tag first-image:latest ahmedshe7ata/first-image:V1
+  914  docker push ahmedshe7ata/first-image:V1
+  915  clear
+  916  docker images
+  917  docker ps -a
+  918  docker exec -it b28a6a5eea2b bash
+  919  docker commit b28a6a5eea2b first-image:v2
+  920  docker images
+  921  docker tag first-image:v2 ahmedshe7ata/first-image:V2
+  922  docker push ahmedshe7ata/first-image:V2
+  923  clear
+  924  docker images
+  925  docker ps -a
+  926  docker rmi ahmedshe7ata/first-image:V1  ahmedshe7ata/first-image:V2 first-image:latest first-image:v2
+  927  docker images
+  928  docker rm b28a6a5eea2b
+  929  docker rm  -f b28a6a5eea2b
+  930  docker run -it -d ahmedshe7ata/first-image:v1
+  931  docker run -it -d ahmedshe7ata/first-image:V1
+  932  clear
+  933  docker ps -a
+  934  docker exec -it a40359871f9f bash
+  935  docker run -it -d ahmedshe7ata/first-image:V2
+  936  docker ps -a
+  937  docker exec -it a85fa36d32b0
+  938  docker exec -it a85fa36d32b0 bash
+  939  clear
+  940  docker ps -a
+  941  docker commit a85fa36d32b0 ahmedshe7ata/private-image:V1
+  942  docker images
+  943  docker push ahmedshe7ata/private-image:V1
