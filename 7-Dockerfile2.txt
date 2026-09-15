@@ -1,0 +1,39 @@
+vim Dockerfile
+  933  docker build -t entrypoint .
+  934  docker run entrypoint
+  935  dockerimages
+  936  docker images
+  937  docker build -t entrypoint .
+  938  vim Dockerfile
+  939  clear
+  940  docker build -t maintainer
+  941  docker build -t maintainer .
+  942  docker images
+  943  docker run e56631b7576d
+  944  docker inspect e56631b7576d
+  945  clear
+  946  vim Dockerfile
+  947  docker build -t port .
+  948  docker run -it -d -p 3000:80 port
+  949  docker ps aa
+  950  docker ps -a
+  951  docker rm -f 10f5b763bac8 0b166e111f5e
+  952  docker images
+  953  docker rmi e56631b7576d d3f8270fa54e
+
+---------------------------------------------------
+
+FROM ubuntu 
+RUN apt-get update && apt-get install -y iputiles-ping
+ENTRYPOINT [ "echo" ]
+
+------------------------------------
+
+FROM ubuntu
+MAINTAINER Ahmedshehata
+RUN apt-get update  
+CMD [ "echo", "Hello" ]
+
+--------------------------------------
+FROM nginx
+EXPOSE 80
