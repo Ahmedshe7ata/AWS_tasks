@@ -1,0 +1,67 @@
+vim test.txt
+  933  vim Dockerfile
+  934  docker build -t copy .
+  935  docker run -it copy:latest bash
+  936  clear
+  937  vim Dockerfile
+  938  docker build -t mkdiee .
+  939  docker run -it mkdiee:latest bash
+  940  vim Dockerfile
+  941  docker build -t mkdiee .
+  942  docker run -it mkdiee:latest bash
+  943  vim D
+  944  vim Dockerfile
+  945  docker build -t env .
+  946  docker run -it env:latest
+  947  docker run -d env:latest
+  948  docker ps
+  949  docker ps -a
+  950  docker logs 19ceb9e7b8af
+  951  docker logs ff83346031a5
+  952  docker ps -a
+  953  docker run -d env:latest
+  954  docker ps -a
+  955  vim Dockerfile
+  956  docker run -d env:latest
+  957  docker ps -a
+  958  docker rm -f d1455e17c972 c891b2d5a1f0 19ceb9e7b8af ff83346031a5
+  959  docker run -d env:latest
+  960  docker ps -a
+  961  docker rm 069a6eafd9dd
+  962  vim Dockerfile
+  963  docker ps -a
+  964  docker images
+  965  docker run -d env:latest
+  966  doker ps -a
+  967  docker ps -a
+  968  docker logs d238a83000fd
+  969  docker logs d238a83000fd bash
+  970  vim Dockerfile
+  971  docker exec -it d238a83000fd bash
+  972  docker run -it d238a83000fd bash
+  973  docker run -d env1:latest
+  974  docker build -t env1 .
+  975  docker run -d env1:latest
+  976  docker ps -a
+  977  docker logs 5674f80bc5d3
+
+
+---------------------------------------------
+
+FROM ubuntu 
+COPY test.txt .
+
+------------------------
+
+FROM ubuntu
+WORKDIR /docker 
+RUN echo "Welcome to Docker" > docker.txt
+WORKDIR container 
+RUN echo "Welcome to Docker" > container.txt
+
+----------------------------------------
+
+FROM ubuntu    
+RUN apt-get update && apt-get install -y iputils.ping
+ENV env1=ping env2=8.8.8.8
+CMD ${env1} ${env2}
