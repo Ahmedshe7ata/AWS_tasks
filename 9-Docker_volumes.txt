@@ -1,0 +1,34 @@
+docker volume ls
+ 1257  docker volume create first-vol
+ 1258  docker volume ls
+ 1259  docker run -it -d --name cont1 -v first-vol:/cont1 centos
+ 1260  docker run -it -d --name cont1 -v first-vol:/cont1 fedora
+ 1261  docker ps
+ 1262  docker exec -it 91b84371e19d bash
+ 1263  clear
+ 1264  docker inspect 91b84371e19d
+ 1265  clear
+ 1266  docker run -it -d --name cont2 -v first-vol:/cont2 fedora:latest
+ 1267  docker ps
+ 1268  docker exec -it cont2 bash
+ 1269  docker exec -it cont1 bash
+ 1270  clear
+ 1271  docker inspect first-vol
+ 1272  clear
+ 1273  docker run -it -d --name cont3 -v first-vol:/cont3:ro fedora:latest
+ 1274  docker exec -it cont3 bash
+ 1275  docker inspect cont3
+ 1276* clear/
+ 1277  sudo ls /var/lib/docker/volumes/first-vol/_data
+ 1278  cat cont2
+ 1279  cat cont2.
+ 1280  cat cont2.txt
+ 1281  cat cont1.txt
+ 1282  docker ps
+ 1283  docker rm -f 91b84371e19d 63030d383af2
+ 1284  sudo ls /var/lib/docker/volumes/first-vol/_data
+ 1285  docker ps
+ 1286  docker rm -f 8c57cf5cbbbe
+ 1287  sudo ls /var/lib/docker/volumes/first-vol/_data
+ 1288  docker volume rm first-vol
+ 1289  docker volume ls
