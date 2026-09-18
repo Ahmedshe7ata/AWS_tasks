@@ -1,0 +1,33 @@
+vim Dockerfile
+ 1248  cat Dockerfile
+ 1249  docker build -t vol-test .
+ 1250  docker volume ls
+ 1251  docker image
+ 1252  docker images
+ 1253  docker run -it -d --name dockervol 8a612427b5a8
+ 1254  clear
+ 1255  docker ps
+ 1256  docker volume ls
+ 1257  docker exec -it 70e9eec59932
+ 1258  docker exec -it 70e9eec59932 bash
+ 1259  docker inspect 70e9eec59932
+ 1260  clear
+ 1261  docker volume ls
+ 1262  docker inspect 6fa87f709fd4d04abb99086f76415c42b6b173a55e1a1b9c88f9b2f08fc0fbc7
+ 1263  sudo ld "/var/lib/docker/volumes/6fa87f709fd4d04abb99086f76415c42b6b173a55e1a1b9c88f9b2f08fc0fbc7/_data
+
+ 1264  sudo ld /var/lib/docker/volumes/6fa87f709fd4d04abb99086f76415c42b6b173a55e1a1b9c88f9b2f08fc0fbc7/_data
+ 1265  sudo ls /var/lib/docker/volumes/6fa87f709fd4d04abb99086f76415c42b6b173a55e1a1b9c88f9b2f08fc0fbc7/_data
+ 1266  docker ps
+ 1267  docker rm -f 70e9eec59932
+ 1268  sudo ls /var/lib/docker/volumes/6fa87f709fd4d04abb99086f76415c42b6b173a55e1a1b9c88f9b2f08fc0fbc7/_data
+ 1269  docker volume  ls
+ 1270  docker rm 6fa87f709fd4d04abb99086f76415c42b6b173a55e1a1b9c88f9b2f08fc0fbc7
+ 1271  docker volume  ls
+ 1272  docker volume rm 6fa87f709fd4d04abb99086f76415c42b6b173a55e1a1b9c88f9b2f08fc0fbc7
+ 1273  docker volume ls
+
+----------------------------------------------------------
+
+FROM ubuntu
+VOLUME /dockerfilevolume
