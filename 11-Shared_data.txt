@@ -1,0 +1,15 @@
+ docker run -it -d --name cont-storage -v /shared-data fedora
+ 1260  docker ps
+ 1261  docker volume ls
+ 1262  docker exec -it c957841e8d29
+ 1263  docker exec -it c957841e8d29 bash
+ 1264  docker run -it -d --name cont1 -volumes-from cont-storage fedora
+ 1265  docker run -it -d --name cont1 --volumes-from cont-storage fedora
+ 1266  docker ps
+ 1267  clear
+ 1268  docker exec -it cont1 bash
+ 1269  docker run -it -d --name cont2 --volumes-from cont-storage fedora
+ 1270  docker rm -f cont2
+ 1271  docker run -it -d --name cont2 --volumes-from cont-storage:ro fedora
+ 1272  docker exec -it cont2
+ 1273  docker exec -it cont2 bash
