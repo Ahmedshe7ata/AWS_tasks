@@ -1,0 +1,85 @@
+cd dolfined-storage
+ 1416  cd ..
+ 1417  vim docker-compose.yml
+ 1418  dcker volume ls
+ 1419  docker volume ls
+ 1420  docker volume rm 40d31d7b9961fbd123e6f25009429eb58042798c44fdab1c0d92053afd7c1471
+ 1421  docker volume ls
+ 1422  docker compose up -d
+ 1423  docker ps
+ 1424  docker volume ls
+ 1425  c dolfined-storage/
+ 1426  cd dolfined-storage/
+ 1427  vim index.html
+ 1428  docker compose up -d
+ 1429  docker ps
+ 1430  clear
+ 1431  cd ..
+ 1432  ls
+ 1433  docker compose up -d
+ 1434  docker inspect cont1
+ 1435  clear
+ 1436  echo "HELLO FROM HOST" > /home/ubuntu/dolfined-storage/index.html
+ 1437  l
+ 1438  cat docker-compose.yml
+ 1439  vim doc
+ 1440  vim docker-compose.yml
+ 1441  docker compose up -d
+ 1442  cd dolfined-storage/
+ 1443  cat index.html
+ 1444  dcker compose down --volume
+ 1445  docker compose down --volume
+ 1446  clear
+ 1447  cd .
+ 1448  cd ..
+ 1449  vim Dockerfile
+ 1450  vim 2-Docker-compose.yml
+ 1451  docker compose -f 2-Docker-compose.yml up -d
+ 1452  docker ps
+ 1453  dcker ps
+ 1454  docker ps
+ 1455  docker images
+ 1456  mkdir new-dir
+ 1457  mv Dockerfile new-dir/docker2
+ 1458  ls
+ 1459  cd new-dir
+ 1460  ls
+ 1461  cd ..
+ 1462  vim 2-Docker-compose.yml
+ 1463  docker compose -f 2-Docker-compose.yml up -d
+ 1464  docker compose down --rmi all
+
+
+--------------------------------------------------------------
+services:
+    db:
+      image: nginx  
+      container_name: cont1
+      ports:
+        - "8080:80"
+      volumes:
+        -  /home/ubuntu/dolfined-storage:/usr/shar/nginx/html 
+    frontend:
+      image: nginx 
+      container_name: cont2
+      ports:
+        - "4000:80"
+      volumes:
+        - new-vol:/usr/shar/nginx/html
+
+
+volumes:  
+  new-vol:     
+
+
+-------------------------------------------------------------
+
+services:
+  db:
+    build:
+      context: ./new-dir
+      dockerfile: docker2
+    container_name: ngn1
+    ports:
+      - 8000:80
+
