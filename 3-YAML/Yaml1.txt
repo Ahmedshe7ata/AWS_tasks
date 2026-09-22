@@ -1,0 +1,11 @@
+vim pod2.yaml
+  132  kubectl apply -f pod2.yaml
+  133  vim pod2.yaml
+  134  kubectl apply -f pod2.yaml
+  135  vim pod2.yaml
+  136  kubectl apply -f pod2.yaml
+  137  kubectl get pod
+  138  kubectl delete pod ngnix test-5db45dc64-jw4nm
+  139  kubectl get pod
+  140  kubectl delete pod test-5db45dc64-jw4nm
+  141  kubectl get pod

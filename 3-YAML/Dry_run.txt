@@ -1,0 +1,11 @@
+  kubectl run test --image=nginx
+  166  kubectl get pod
+  167  kubectl run dry --image=nginx --dry-run=client -o yaml > dry.yaml
+  168  cat dry.yaml
+  169  vim dry.yaml
+  170  kubectl apply -f dry.yaml
+  171  kubectl get pod
+  172  kubectl delete pod dry
+  173  kubectl delete pod test
+  174  kubectl get pod
+  175  kubectl delete pod test-5db45dc64-sg6hf
