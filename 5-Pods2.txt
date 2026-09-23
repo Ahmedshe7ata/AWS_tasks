@@ -1,0 +1,15 @@
+ kubectl get pod
+  179  kubectl describe pod pod1
+  180  kubectl describe pod pod1 | grep image
+  181  kubectl describe pod pod1 | grep Image
+  182  kubectl edit pod pod1
+  183  kubectl get pod
+  184  kubectl describe pod pod1 | grep Image
+  185  kubectl get pod -o yaml
+  186  clear
+  187  vim pod4.yaml
+  188  kubectl apply -f pod4.yaml
+  189  kubectl describe pod pod1 | grep Image
+  190  kubectl get pod -o yaml
+  191  kubectl delete pod --all
+  192  kubectl get pod
