@@ -1,0 +1,16 @@
+ minikube status
+  182  minikube start --driver=docker
+  184  clear
+  185  kubectl get pod
+  187  kubectl get pod
+  189  kubectl --help
+  190  clear
+  191  vim pod.yaml
+  192  kubectl apply -f pod.yaml
+  193  vim pod.yaml
+  194  vim pod4.yaml
+  195  kubectl apply -f pod4.yaml
+  196  kubectl get pod
+  197  kubectl get pods -o wide
+  198  kubectl get pods -o yaml
+  199  kubectl exec -it pod1 -- /bin/bash
