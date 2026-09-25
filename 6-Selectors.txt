@@ -1,0 +1,27 @@
+ kubectl get pods --show-labels
+  242  kubectl get pod --selector env=prod
+  243  kubectl get pod -l env=prod
+  244  kubectl label pod pod1 env=dev
+  245  kubectl label pod pod1 status=online
+  246  kubectl label pod pod2 status=online
+  247  kubectl get pods --show-labels
+  248  kubectl get pod -l status=online
+  249  kubectl get pod -l env=prod
+  250  kubectl get pod -l env=prod,tier=frontend
+  251  kubectl get pod -l env=prod,tier=backend
+  252  clear
+  253  kubectl get pods --show-labels
+  254  kubectl get pod -l env!=dev
+  255  cear
+  256  clear
+  257  kubectl get pods --show-labels
+  258  kubectl get
+  259  kubectl get pod -l 'env in (dev)'
+  260  kubectl get pod -l 'env in (dev,prod)'
+  261  kubectl get pod -l 'env notin (dev,prod)'
+  262  kubectl get pod -l 'env in (dev),tier in (frontend)'
+  263  kubectl describe pod pod1
+  264  clear
+  265  kubectl get pods --show-labels
+  266  kubectl delete pod --all
+  267  kubectl get pods --show-labels
