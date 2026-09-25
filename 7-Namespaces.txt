@@ -1,0 +1,11 @@
+ vim pod3.yaml
+  275  kubectl apply -f pod3.yaml
+  276  kubectl get pod -n dev
+  277  kubectl config set-context --current --namespace=dev
+  278  kubectl run test --image=nginx
+  279  kubectl get pod -n dev
+  280  kubectl config set-context --current --namespace=default
+  281  kubectl config view --minify | grep namespace
+  282  kubectl delete ns dev
+  283  kubectl get pod --all-namespaces
+  284  kubectl delete ns prod
