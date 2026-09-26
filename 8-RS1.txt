@@ -1,0 +1,17 @@
+ minikube start --driver=docker
+  319  clear
+  320  kubectl get pod
+  321  kubectl delete pod prod-def
+  322  kubectl delete pod test-5db45dc64-jbr4x
+  323  kubectl delete pod prod-def
+  324  kubectl get pod
+  325  vim rs.yaml
+  326  kubectl apply -f rs.yaml
+  327  vim rs.yaml
+  328  kubectl apply -f rs.yaml
+  329  vim rs.yaml
+  330  kubectl apply -f rs.yaml
+  331  kubectl get rs
+  332  clear
+  333  kubectl get pod
+  334  kubectl get pod --show-labels
