@@ -1,0 +1,32 @@
+kubectl get pod --show-labels
+  338  kubectl delete pod rs1-6q9j5
+  339  kubectl get pod --show-labels
+  340  kubectl label pod rs1-9tdb5 type=new
+  341  kubectl label pod rs1-9tdb5 env-
+  342  kubectl get pod --show-labels
+  343  cleart
+  344  clear
+  345  kubectl get rs
+  346  kubectl describe rs rs1
+  347  clear
+  348  kubectl get rs
+  349  kubectl scale rs rs1 --replicas=5
+  350  kubectl get rs
+  351  vim rs.yaml
+  352  kubectl apply -f rs.yaml
+  353  kubectl get rs
+  354  vim rs.yaml
+  355  kubectl apply -f rs.yaml
+  356  kubectl get rs
+  357  kubectl get pod --show-labels
+  358  clear
+  359  kubectl scale rs rs1 --replicas=3
+  360  kubectl get pod --show-labels
+  361  kubectl get rs
+  362  kubectl delete rs rs1
+  363  kubectl get rs
+  364  kubectl delete rs test-5db45dc64
+  365  kubectl get rs
+  366  kubectl get pod --show-labels
+  367  kubectl delete pod rs1-9tdb5
+  368  kubectl get pod --show-labels
